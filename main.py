@@ -16,6 +16,7 @@ app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
 user_id = os.environ["USER_ID"]
+
 template_id = os.environ["TEMPLATE_ID"]
 
 
@@ -88,5 +89,7 @@ data = {"today": {"value": get_today(), "color": get_random_color()},
         "boy_birthday": {"value": get_boy_birthday(), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
         }
-res = wm.send_template(user_id, template_id, data)
+res = wm.send_template(user_id[0], template_id, data)
+print(res)
+res = wm.send_template(user_id[1], template_id, data)
 print(res)
