@@ -34,7 +34,7 @@ def get_today():
         weekday = "星期六"
     elif datetime.now().isoweekday() == 7:
         weekday = "星期日"
-    return str(datetime.now()) + " " + weekday
+    return str(datetime.strptime(str(today), "%Y-%m-%d")) + " " + weekday
 
 
 def get_weather():
