@@ -33,7 +33,7 @@ def get_count():
 def get_birthday():
     next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
     if next < datetime.now():
-        next = next.replace(year=next.year + 1)
+        next = next.replace(year=date.today().year + 1)
     return (next - today).days
 
 
@@ -52,9 +52,11 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"weather": {"value": wea, "color": get_random_color()},
+data = {"today": {"value": today, "color": get_random_color()},
+        "city": {"value": city, "color": get_random_color()},
+        "weather": {"value": wea, "color": get_random_color()},
         "temperature": {"value": temperature, "color": get_random_color()},
-        "love_days": {"value": get_count()},
+        "love_days": {"value": get_count(), "color": get_random_color()},
         "birthday_left": {"value": get_birthday(), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
