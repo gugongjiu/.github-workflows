@@ -9,7 +9,8 @@ import random
 today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
-birthday = os.environ['BIRTHDAY']
+girl_birthday = os.environ['GRIL_BIRTHDAY']
+boy_birthday = os.environ['BOY_BIRTHDAY']
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -49,8 +50,15 @@ def get_count():
     return delta.days
 
 
-def get_birthday():
-    next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
+def get_gril_birthday():
+    next = datetime.strptime(str(date.today().year) + "-" + girl_birthday, "%Y-%m-%d")
+    if next < datetime.now():
+        next = next.replace(year=next.year + 1)
+    return (next - today).days
+
+
+def get_boy_birthday():
+    next = datetime.strptime(str(date.today().year) + "-" + boy_birthday, "%Y-%m-%d")
     if next < datetime.now():
         next = next.replace(year=next.year + 1)
     return (next - today).days
@@ -76,7 +84,8 @@ data = {"today": {"value": get_today(), "color": get_random_color()},
         "weather": {"value": wea, "color": get_random_color()},
         "temperature": {"value": temperature, "color": get_random_color()},
         "love_days": {"value": get_count(), "color": get_random_color()},
-        "birthday_left": {"value": get_birthday(), "color": get_random_color()},
+        "gril_birthday": {"value": get_gril_birthday(), "color": get_random_color()},
+        "boy_birthday": {"value": get_boy_birthday(), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
         }
 res = wm.send_template(user_id, template_id, data)
