@@ -9,13 +9,13 @@ import random
 today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
-girl_birthday = os.environ['GRIL_BIRTHDAY']
-boy_birthday = os.environ['BOY_BIRTHDAY']
+girl_birthday = '09-03'
+boy_birthday = '11-28'
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
-user_id = os.environ["USER_ID"]
+user_id = ['o5-N56J35eHMCvUQT82Y3Ct1OIK4', 'o5-N56ESeHQNqYmQTalM2JSf_2m4']
 
 template_id = os.environ["TEMPLATE_ID"]
 
