@@ -8,7 +8,7 @@ import random
 
 today = datetime.now()
 start_date = os.environ['START_DATE']
-city = os.environ['CITY']
+city = 440307
 girl_birthday = '09-03'
 boy_birthday = '11-28'
 
@@ -40,10 +40,11 @@ def get_today():
 
 
 def get_weather():
-    url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+    url = "https://restapi.amap.com/v3/weather/weatherInfo?key=65d8f52f1a30b4a96d97ae771738cd70&city=" + city
     res = requests.get(url).json()
-    weather = res['data']['list'][0]
-    return weather['weather'], math.floor(weather['temp']), weather['humidity'], weather['wind']
+    print(res)
+    weather = res['lives'][0]
+    return weather['weather'], weather['temperature'], weather['humidity'], weather['windpower']
 
 
 def get_count():
