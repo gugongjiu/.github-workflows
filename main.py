@@ -8,7 +8,7 @@ import random
 
 today = datetime.now()
 start_date = os.environ['START_DATE']
-city = 440307
+city = '440307'
 girl_birthday = '09-03'
 boy_birthday = '11-28'
 
