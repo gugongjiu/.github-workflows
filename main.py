@@ -15,7 +15,7 @@ boy_birthday = '11-28'
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
-user_id = ['o5-N56J35eHMCvUQT82Y3Ct1OIK4', 'o5-N56ESeHQNqYmQTalM2JSf_2m4']
+user_id = ['ozwzw6rzU02nSRoaDWAMEfCf75T8', 'o5-N56ESeHQNqYmQTalM2JSf_2m4']
 
 template_id = os.environ["TEMPLATE_ID"]
 
@@ -94,5 +94,5 @@ data = {"today": {"value": get_today(), "color": get_random_color()},
         }
 res = wm.send_template(user_id[0], template_id, data)
 print(res)
-res = wm.send_template(user_id[1], template_id, data)
-print(res)
+# res = wm.send_template(user_id[1], template_id, data)
+# print(res)
